@@ -1,0 +1,13 @@
+@startuml
+
+artifact financeSumSystem
+cloud cardSite
+ financeSumSystem -0)- cardSite
+file sumStateFile
+ financeSumSystem -(0- sumStateFile
+artifact financeNotificationSystem
+ sumStateFile -0)- financeNotificationSystem
+actor user
+  financeNotificationSystem -0)- user
+
+@enduml

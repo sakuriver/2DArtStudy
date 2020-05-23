@@ -1,0 +1,18 @@
+@startuml
+
+node "UnityRoomWebServer" as unityroom <<https://unityroom.com/games/turtle_quiz/>>
+
+node "CsrfServer" as unityroomproxy <<https://object-storage.tyo1.conoha.io>>
+
+node "AppServer" as gameserver <<https://quizwebapi20200430120127.azurewebsites.net>>
+
+
+unityroom -[#red]> unityroomproxy : httpsリクエスト
+
+unityroomproxy -[#red]> gameserver : httpsリクエスト(ゲームサーバに登録するurl)
+
+gameserver -[#blue]> unityroomproxy : レスポンス
+
+unityroomproxy -[#blue]> unityroom : レスポンス
+
+@enduml
